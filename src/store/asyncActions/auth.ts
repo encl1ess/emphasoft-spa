@@ -1,19 +1,23 @@
 import axios from 'axios'
+import request from "axios";
 import { Dispatch } from 'redux'
 import { AuthAction, AuthActionTypes } from '../../types/authToken'
 import { IUser } from '../../types/user'
 import api from '../../api/axios'
 export const loginUser = (username: string, password: string) => {
     return async (dispatch: Dispatch<AuthAction>) => {
+
         try {
             dispatch({ type: AuthActionTypes.LOGIN })
             const response = await api.post(`/login/`, { username, password })
-            console.log(response)
+            console.log(response.status)
             localStorage.setItem('token', response.data.token)
             dispatch({ type: AuthActionTypes.LOGIN_SUCCESS, payload: response.data })
 
         } catch (e) {
-            dispatch({ type: AuthActionTypes.LOGIN_FAILURE, payload: 'Login Failed' })
+            if (request.isAxiosError(e) && e.response) {
+                dispatch({ type: AuthActionTypes.LOGIN_FAILURE, payload: e.response.data })
+            }
         }
     }
 }

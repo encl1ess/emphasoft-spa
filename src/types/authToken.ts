@@ -6,7 +6,7 @@ export interface AuthState {
     isAuth: boolean,
     token: string,
     loading: boolean,
-    error: null | string | ISigninErrors
+    error: null | string | IErrors
 }
 
 export enum AuthActionTypes {
@@ -20,7 +20,7 @@ export enum AuthActionTypes {
     CHECK_AUTH = 'CHECK_AUTH'
 }
 
-interface ISigninErrors {
+export interface IErrors {
     username?: string[],
     password?: string[],
     is_active?: string[],
@@ -57,7 +57,7 @@ interface SigninActionSuccess {
 
 interface SigninActionFailure {
     type: AuthActionTypes.SIGNIN_FAILURE,
-    payload: ISigninErrors | string
+    payload: IErrors | string
 }
 
 interface CheckAuthAction {

@@ -1,28 +1,42 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { useActions } from '../hooks/useActions';
 import { useInput } from '../hooks/useInput';
-import ErrorMessage from './ErrorMessage';
+import { useTypedSelector } from '../hooks/useTypedSelector';
+import { loginUser } from '../store/asyncActions/auth';
+import { Container } from '../styles/Container';
+import Form from '../styles/Form';
+import ErrorMessageList from './ErrorMessageList';
 
 
 
 const LoginForm = () => {
-    const username = useInput('', {isEmpty: true, maxLength: 150, pattern: /^[\w.@+-]+$/ })
-    const password = useInput('',  {isEmpty: true, maxLength: 128, minLength: 8,  pattern: /^(?=.*[A-Z])(?=.*\d).{8,}$/})
+    const username = useInput('', { isEmpty: true, maxLength: 150, pattern: /^[\w.@+-]+$/ })
+    const password = useInput('', { isEmpty: true })
+    const {error} = useTypedSelector(state => state.authReducer)
+    const { loginUser } = useActions();
+
 
     return (
-        <form>
+        <Form>
             <h1>Login</h1>
             <input value={username.value} name="username" type='text' placeholder='Enter username'
                 onChange={e => username.onChange(e)}
                 onBlur={e => username.onBlur(e)} />
-            {(username.isLeave && username.errorMessage) &&  Object.values(username.errorMessage).map((message, i) => <ErrorMessage key = {'u'+i} message={message}/>)}
+            {(username.isLeave && username.errorMessage) && <ErrorMessageList messages={username.errorMessage} idLetter='u'/>}
             <input value={password.value} name="password" type='password' placeholder='Enter password'
                 onChange={e => password.onChange(e)}
                 onBlur={e => password.onBlur(e)} />
-            {(password.isLeave && password.errorMessage) && Object.values(password.errorMessage).map((message, i) => <ErrorMessage key = {'p'+ i} message={message}/>)}
-            {(password.isLeave && password.errorMessage?.pattern) && <ErrorMessage message='The password must contain an uppercase letter number and a special character'/>}
-            <button type='submit' disabled={!username.isValid || !password.isValid}>Login</button>
-            <button type='submit'>Signin</button>
-        </form>
+            {(password.isLeave && password.errorMessage) && <ErrorMessageList messages={password.errorMessage} idLetter='p'/>}
+            <Container>
+                <button disabled={!username.isValid || !password.isValid} onClick={(e) => {
+                    e.preventDefault()
+                    loginUser(username.value, password.value)
+                }
+                }>Login</button>
+                <button type='submit'>Sign In</button>
+            </Container>
+            {error && <ErrorMessageList messages={error} idLetter='e'/>}
+        </Form>
     );
 };
 
