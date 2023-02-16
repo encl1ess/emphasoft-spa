@@ -1,7 +1,9 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
+import { RouteNames } from '../routes/routes';
 import { Button } from '../styles/Button';
 import { Container } from '../styles/Container';
 import { BEIGE } from '../styles/utils/colors';
@@ -22,7 +24,9 @@ const Navbar = () => {
             {isAuth ? 
             <Button onClick={logoutUser}>Log out</Button> 
             :
-            <Button>Login</Button>
+            <NavLink to={RouteNames.LOGIN}>
+                <Button>Login</Button>
+            </NavLink>
             }
         </StyledNavbar>
     );

@@ -1,11 +1,12 @@
 import React from 'react';
 import LoginForm from '../components/LoginForm';
+import Page from '../styles/Page';
 
 const LoginPage: React.FC  = () => {
     return (
-        <div>
+        <Page>
             <LoginForm/>
-        </div>
+        </Page>
     );
 };
 

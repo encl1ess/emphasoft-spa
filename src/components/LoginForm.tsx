@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { useActions } from '../hooks/useActions';
 import { useInput } from '../hooks/useInput';
 import { useTypedSelector } from '../hooks/useTypedSelector';
+import { RouteNames } from '../routes/routes';
 import { loginUser } from '../store/asyncActions/auth';
 import { Button } from '../styles/Button';
 import { Container } from '../styles/Container';
@@ -20,21 +22,27 @@ const LoginForm = () => {
     return (
         <Form>
             <h1>Login</h1>
-            <input value={username.value} name="username" type='text' placeholder='Enter username'
+            <Container direction='column' align='flex-start'>
+            <label htmlFor="username">Username</label>
+            <input value={username.value} id='username' name='username' type='text' placeholder='Enter username'
                 onChange={e => username.onChange(e)}
                 onBlur={e => username.onBlur(e)} />
             {(username.isLeave && username.errorMessage) && <ErrorMessageList messages={username.errorMessage} idLetter='u'/>}
-            <input value={password.value} name="password" type='password' placeholder='Enter password'
+            <label htmlFor="password">Password</label>
+            <input value={password.value} id='password' name='password' type='password' placeholder='Enter password'
                 onChange={e => password.onChange(e)}
                 onBlur={e => password.onBlur(e)} />
             {(password.isLeave && password.errorMessage) && <ErrorMessageList messages={password.errorMessage} idLetter='p'/>}
+            </Container>
             <Container>
                 <Button disabled={!username.isValid || !password.isValid} onClick={(e) => {
                     e.preventDefault()
                     loginUser(username.value, password.value)
                 }
                 }>Login</Button>
-                <Button>Sign In</Button>
+                <NavLink to={RouteNames.SIGNIN}>
+                    <Button >Sign In</Button>
+                </NavLink>
             </Container>
             {error && <ErrorMessageList messages={error} idLetter='e'/>}
         </Form>
