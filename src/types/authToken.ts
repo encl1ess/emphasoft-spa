@@ -16,7 +16,8 @@ export enum AuthActionTypes {
     LOGOUT = 'LOGOUT',
     SIGNIN = 'SIGNIN',
     SIGNIN_SUCCESS = 'SIGNIN_SUCCESS',
-    SIGNIN_FAILURE = 'SIGNIN_FAILURE'
+    SIGNIN_FAILURE = 'SIGNIN_FAILURE',
+    CHECK_AUTH = 'CHECK_AUTH'
 }
 
 interface ISigninErrors {
@@ -59,6 +60,11 @@ interface SigninActionFailure {
     payload: ISigninErrors | string
 }
 
+interface CheckAuthAction {
+    type: AuthActionTypes.CHECK_AUTH, 
+    payload: boolean
+}
+
 export type AuthAction = LogoutAction
     | LoginAction | LoginActionSuccess | LoginActionFailure
-    | SigninAction | SigninActionSuccess | SigninActionFailure
+    | SigninAction | SigninActionSuccess | SigninActionFailure | CheckAuthAction
