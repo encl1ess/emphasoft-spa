@@ -26,9 +26,9 @@ export const loginUser = (username: string, password: string) => {
 export const logoutUser = () => {
     return async (dispatch: Dispatch<AuthAction>) => {
         try {
-            dispatch({ type: AuthActionTypes.LOGOUT });
             localStorage.removeItem('token')
-
+            console.log(localStorage.getItem('token'))
+            dispatch({ type: AuthActionTypes.LOGOUT });
         } catch (e) {
             console.log(e)
         }

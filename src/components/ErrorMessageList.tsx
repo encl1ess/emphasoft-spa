@@ -4,9 +4,9 @@ import { IErrors } from '../types/authToken';
 import ErrorMessage from './ErrorMessage';
 
 interface IErrorMessageListProps {
-    messages: string | IErrors | IErrorMessage,
-    idLetter?: string,
-    children?: React.ReactNode
+    messages: string | IErrors | IErrorMessage;
+    idLetter?: string;
+    children?: React.ReactNode;
 }
 
 const ErrorMessageList = ({messages, idLetter = ''}: IErrorMessageListProps):JSX.Element => {

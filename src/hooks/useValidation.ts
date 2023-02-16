@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react'
 
 
 export interface IValidator {
-    maxLength?: number,
-    minLength?: number,
-    pattern?: RegExp,
-    isEmpty?: boolean
+    maxLength?: number;
+    minLength?: number;
+    pattern?: RegExp;
+    isEmpty?: boolean;
 }
 
 export interface IErrorMessage {
-    maxLength?: string,
-    minLength?: string,
-    pattern?: string,
-    isEmpty?: string
+    maxLength?: string;
+    minLength?: string;
+    pattern?: string;
+    isEmpty?: string;
 }
 
 export const useValidation = (value: string, validators: IValidator) => {
@@ -66,7 +66,6 @@ export const useValidation = (value: string, validators: IValidator) => {
                     }
                     break;
             }
-            console.log(state)
             setErrorMessage(state)
         }
     }, [value])

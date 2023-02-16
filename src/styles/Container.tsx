@@ -2,12 +2,12 @@
 import React from 'react';
 import styled from 'styled-components';
 interface IContainerProps {
-    width?: string,
-    direction?: string,
-    justify?: string,
-    align?: string,
-    bg?: string, 
-    children: React.ReactNode
+    width?: string;
+    direction?: string;
+    justify?: string;
+    align?: string;
+    bg?: string; 
+    children: React.ReactNode;
 }
 
 const StyledContainer = styled.div<IContainerProps>`

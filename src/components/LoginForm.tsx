@@ -3,6 +3,7 @@ import { useActions } from '../hooks/useActions';
 import { useInput } from '../hooks/useInput';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { loginUser } from '../store/asyncActions/auth';
+import { Button } from '../styles/Button';
 import { Container } from '../styles/Container';
 import Form from '../styles/Form';
 import ErrorMessageList from './ErrorMessageList';
@@ -28,12 +29,12 @@ const LoginForm = () => {
                 onBlur={e => password.onBlur(e)} />
             {(password.isLeave && password.errorMessage) && <ErrorMessageList messages={password.errorMessage} idLetter='p'/>}
             <Container>
-                <button disabled={!username.isValid || !password.isValid} onClick={(e) => {
+                <Button disabled={!username.isValid || !password.isValid} onClick={(e) => {
                     e.preventDefault()
                     loginUser(username.value, password.value)
                 }
-                }>Login</button>
-                <button type='submit'>Sign In</button>
+                }>Login</Button>
+                <Button>Sign In</Button>
             </Container>
             {error && <ErrorMessageList messages={error} idLetter='e'/>}
         </Form>

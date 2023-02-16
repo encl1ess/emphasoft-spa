@@ -1,9 +1,5 @@
 
-import React from 'react';
 import styled from 'styled-components';
-interface IFormProps {
-    children: React.ReactNode
-}
 
 const Form = styled.form`
   width: 70vw;

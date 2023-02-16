@@ -4,12 +4,12 @@ import styled from 'styled-components';
 import { BEIGE_LIGHT, BLUE } from './utils/colors';
 
 interface IButtonProps {
-    width?: string,
-    border?: string,
-    bg?: string,
-    color?: string,
-    disabled?: boolean,
-    children: React.ReactNode,
+    width?: string; 
+    border?: string;
+    bg?: string;
+    color?: string;
+    disabled?: boolean;
+    children: React.ReactNode;
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 

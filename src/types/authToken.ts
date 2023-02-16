@@ -2,11 +2,11 @@ import { IUser } from './user'
 
 
 export interface AuthState {
-    user: IUser | null,
-    isAuth: boolean,
-    token: string,
-    loading: boolean,
-    error: null | string | IErrors
+    user: IUser | null;
+    isAuth: boolean;
+    token: string;
+    loading: boolean;
+    error: null | string | IErrors;
 }
 
 export enum AuthActionTypes {
@@ -21,48 +21,48 @@ export enum AuthActionTypes {
 }
 
 export interface IErrors {
-    username?: string[],
-    password?: string[],
-    is_active?: string[],
-    non_field_errors?: string[]
+    username?: string[];
+    password?: string[];
+    is_active?: string[];
+    non_field_errors?: string[];
 }
 
 interface LoginAction {
-    type: AuthActionTypes.LOGIN,
+    type: AuthActionTypes.LOGIN;
 }
 
 interface LoginActionSuccess {
-    type: AuthActionTypes.LOGIN_SUCCESS,
-    payload: string
+    type: AuthActionTypes.LOGIN_SUCCESS;
+    payload: string;
 }
 
 interface LoginActionFailure {
-    type: AuthActionTypes.LOGIN_FAILURE,
-    payload: string
+    type: AuthActionTypes.LOGIN_FAILURE;
+    payload: string;
 }
 
 interface LogoutAction {
-    type: AuthActionTypes.LOGOUT
+    type: AuthActionTypes.LOGOUT;
 }
 
 
 interface SigninAction {
-    type: AuthActionTypes.SIGNIN
+    type: AuthActionTypes.SIGNIN;
 }
 
 interface SigninActionSuccess {
-    type: AuthActionTypes.SIGNIN_SUCCESS,
-    payload: IUser
+    type: AuthActionTypes.SIGNIN_SUCCESS;
+    payload: IUser;
 }
 
 interface SigninActionFailure {
-    type: AuthActionTypes.SIGNIN_FAILURE,
-    payload: IErrors | string
+    type: AuthActionTypes.SIGNIN_FAILURE;
+    payload: IErrors | string;
 }
 
 interface CheckAuthAction {
-    type: AuthActionTypes.CHECK_AUTH, 
-    payload: boolean
+    type: AuthActionTypes.CHECK_AUTH; 
+    payload: boolean;
 }
 
 export type AuthAction = LogoutAction
