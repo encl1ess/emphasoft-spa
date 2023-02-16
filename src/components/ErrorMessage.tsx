@@ -6,9 +6,9 @@ interface IErrorMessageProps {
 
 const ErrorMessage = ({message}: IErrorMessageProps) => {
     return (
-        <div>
+        <span>
             {message}
-        </div>
+        </span>
     );
 };
 
