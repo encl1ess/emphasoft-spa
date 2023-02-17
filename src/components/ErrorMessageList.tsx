@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { IErrorMessage } from '../hooks/useValidation';
-import { IErrors } from '../types/authToken';
+import { IErrors } from '../types/errors';
 import ErrorMessage from './ErrorMessage';
 
 interface IErrorMessageListProps {

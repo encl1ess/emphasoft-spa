@@ -1,3 +1,4 @@
+import { IErrors } from './errors';
 import { IUser } from './user'
 
 
@@ -18,13 +19,6 @@ export enum AuthActionTypes {
     SIGNIN_SUCCESS = 'SIGNIN_SUCCESS',
     SIGNIN_FAILURE = 'SIGNIN_FAILURE',
     CHECK_AUTH = 'CHECK_AUTH'
-}
-
-export interface IErrors {
-    username?: string[];
-    password?: string[];
-    is_active?: string[];
-    non_field_errors?: string[];
 }
 
 interface LoginAction {

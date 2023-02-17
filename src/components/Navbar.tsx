@@ -6,7 +6,7 @@ import { useTypedSelector } from '../hooks/useTypedSelector';
 import { RouteNames } from '../routes/routes';
 import { Button } from '../styles/Button';
 import { Container } from '../styles/Container';
-import { BEIGE } from '../styles/utils/colors';
+import {BLUE_GRADIENT } from '../styles/utils/colors';
 
 
 
@@ -20,7 +20,7 @@ const Navbar = () => {
     const { isAuth } = useTypedSelector(state => state.authReducer)
     const {logoutUser} = useActions()
     return (
-        <StyledNavbar bg={BEIGE} justify="end">
+        <StyledNavbar bg={BLUE_GRADIENT} justify="end">
             {isAuth ? 
             <Button onClick={logoutUser}>Log out</Button> 
             :

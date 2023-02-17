@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Router } from 'react-router-dom';
 import AppRouter from './components/AppRouter';
-import Header from './components/Header';
+import Navbar from './components/Navbar';
 import LoginForm from './components/LoginForm';
 import UserList from './components/UserList';
 import { useActions } from './hooks/useActions';
@@ -20,7 +20,7 @@ const App = () => {
     <>
       <GlobalStyle />
       <Container direction='column'>
-          <Header />
+          <Navbar />
           <AppRouter />
       </Container>
     </>

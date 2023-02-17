@@ -1,11 +1,11 @@
 
 import styled from 'styled-components';
+import { BLUE, BLUE_GRADIENT } from './utils/colors';
 
 const Table = styled.table`
     width: 80vw;
     border-collapse: collapse;
 	box-shadow: 0 0 20px rgba(0,0,0,0.1);
-
 
     th,
     td {
@@ -15,11 +15,10 @@ const Table = styled.table`
 		max-width: 15%;
 		word-wrap: break-word;
 		overflow: hidden;
+		text-align: center;
     }
 
     th {
-    	text-align: left;
-		align-content: space-between;
         color: white;
         letter-spacing: 0.1em;
         font-weight: 300;
@@ -27,9 +26,7 @@ const Table = styled.table`
     }
 
     thead {
-    	th {
-    		background-color: #55608f;
-    	}
-    }
+		background: ${BLUE}
+	}
 `;
 export default Table;
