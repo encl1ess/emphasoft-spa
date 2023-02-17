@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/emphasoft-spa/static/js/main.dea69c8c.js",
+    "main.js": "/emphasoft-spa/static/js/main.c7b3ab13.js",
     "index.html": "/emphasoft-spa/index.html",
-    "main.dea69c8c.js.map": "/emphasoft-spa/static/js/main.dea69c8c.js.map"
+    "main.c7b3ab13.js.map": "/emphasoft-spa/static/js/main.c7b3ab13.js.map"
   },
   "entrypoints": [
-    "static/js/main.dea69c8c.js"
+    "static/js/main.c7b3ab13.js"
   ]
 }
