@@ -3,9 +3,9 @@ import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import Table from '../styles/Table';
 import { IUser } from '../types/user';
-import SortButton from './SortButton';
+import SortButton from '../styles/SortButton';
 const UserList: React.FC = () => {
-    const { users } = useTypedSelector(state => state.usersReducer)
+    const { sortedOrFilteredUsers } = useTypedSelector(state => state.usersReducer)
     const { isAuth } = useTypedSelector(state => state.authReducer)
     const { getUsers, sortById } = useActions();
     const [toLow, setToLow] = useState(true)
@@ -20,9 +20,9 @@ const UserList: React.FC = () => {
         <Table>
             <thead>
                 <tr>
-                    <th>id <SortButton className={toLow ? 'down' : 'up'} onClick={() => {
+                    <th>id<SortButton className={toLow ? 'down' : 'up'} onClick={() => {
                         setToLow(!toLow)
-                        sortById(users, toLow)
+                        sortById(sortedOrFilteredUsers, toLow)
                     } }/></th>
                     <th>username</th>
                     <th>first name</th>
@@ -34,7 +34,7 @@ const UserList: React.FC = () => {
                 </tr>
             </thead>
             <tbody>
-                {users.map((user) =>
+                {sortedOrFilteredUsers.map((user) =>
                     <tr key={user.username}>
                         {
                             Object.values(user).map((elem, id, array) => <td key={array[1] + id}>{
