@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
+import Table from '../styles/Table';
 import { IUser } from '../types/user';
 const UserList: React.FC = () => {
     const { users } = useTypedSelector(state => state.usersReducer)
@@ -13,7 +14,7 @@ const UserList: React.FC = () => {
         }
     }, [isAuth])
     return (
-        <table>
+        <Table>
             <thead>
                 <tr>
                     <th>id</th>
@@ -21,24 +22,28 @@ const UserList: React.FC = () => {
                     <th>first name</th>
                     <th>last name</th>
                     <th>is active</th>
+                    {/* Этот параметр на бекенде не заполняется (с фронта его не поменять) */}
                     <th>last login</th>
                     <th>is superuser</th>
                 </tr>
             </thead>
             <tbody>
-                {users.map((user, id) =>
-                    <tr key={id}>
-                        <td>{user.id}</td>
-                        <td>{user.username}</td>
-                        <td>{user.first_name}</td>
-                        <td>{user.last_name}</td>
-                        <td>{user.is_active ? 'Yes' : 'No'}</td>
-                        <td>{user.last_login ? user.last_login.toString() : 'unknown'}</td>
-                        <td>{user.is_superuser ? 'Yes' : 'No'}</td>
+                {users.map((user) =>
+                    <tr key={user.username}>
+                        {
+                            Object.values(user).map((elem, id, array) => <td key={array[1] + id}>{
+                                    !elem ? 
+                                    <span>&#8212;</span>
+                                    :
+                                     elem===true ? <span>&#10004;</span> : elem
+                                    }</td>
+                            )
+                        }
+
                     </tr>
                 )}
             </tbody>
-        </table>
+        </Table>
     );
 };
 
