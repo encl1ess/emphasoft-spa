@@ -7,12 +7,20 @@ const SortButton = styled.button`
     height: 2em;
     background: transparent;
     border: none;
+    &.down:after,
+    &.up:after {
+        content: '>';
+        display: inline-block;
+        font-weight: 400;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        
+    }
 
     &.down:after {
-        content: "\\1F879";
+        transform: rotate(90deg);
     }
     &.up:after {
-        content: "\\1F87B";
+        transform: rotate(-90deg);
     }
 `;
 export default SortButton;

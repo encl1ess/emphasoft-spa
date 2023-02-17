@@ -12,8 +12,7 @@ import {BLUE_GRADIENT } from '../styles/utils/colors';
 
 const StyledNavbar = styled(Container)`
     width: 100%;
-    min-height: 50px;
-    height: 9vh;
+    height: 50px;
 `
 
 const Navbar = () => {

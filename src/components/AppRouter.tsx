@@ -1,8 +1,7 @@
 import React from 'react';
 import { useTypedSelector } from '../hooks/useTypedSelector';
-import { Routes, Route } from "react-router-dom";
-import { publicRoutes, privateRoutes } from '../routes/routes';
-import LoginPage from '../pages/LoginPage';
+import { Routes, Route, Navigate } from "react-router-dom";
+import { publicRoutes, privateRoutes, RouteNames } from '../routes/routes';
 import UsersListPage from '../pages/UsersListPage';
 
 const AppRouter: React.FC = () => {
@@ -12,7 +11,7 @@ const AppRouter: React.FC = () => {
             {privateRoutes.map(({ path, Component }, index) =>
                 <Route path={path} element={< Component />} key={path} />
             )}
-            <Route path='*' element=<UsersListPage /> />
+            <Route path='*' element={<Navigate replace to={RouteNames.USERS} />}/>
         </Routes>
     ) : (
         <Routes>
@@ -20,7 +19,7 @@ const AppRouter: React.FC = () => {
                 publicRoutes.map(({ path, Component }, index) =>
                     <Route path={path} element={< Component />} key={path} />
                 )}
-            <Route path='*' element=<LoginPage /> />
+            <Route path='*' element={<Navigate replace to={RouteNames.LOGIN} />}/>
         </Routes>
     );
 

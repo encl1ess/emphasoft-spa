@@ -14,7 +14,8 @@ margin: 1em;
   padding: 10px 20px;
   background: white;
   border-radius: 3px;
-  box-shadow: ${BLUE} 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px, #93b6f6 10px -10px, rgb(255, 255, 255) 20px -20px 0px -3px, rgba(156,252,248,1) 20px -20px;
+  -webkit-appearance: none;
+  box-shadow:  ${BLUE} 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px, #93b6f6 10px -10px, rgb(255, 255, 255) 20px -20px 0px -3px, rgba(156,252,248,1) 20px -20px;
   margin-bottom: 1em;
 `;
 
