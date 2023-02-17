@@ -4,7 +4,7 @@ import { useActions } from '../hooks/useActions';
 import { useInput } from '../hooks/useInput';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { RouteNames } from '../routes/routes';
-import { loginUser } from '../store/asyncActions/auth';
+import { loginUser } from '../store/actions/auth';
 import { Button } from '../styles/Button';
 import { Container } from '../styles/Container';
 import Form from '../styles/Form';
