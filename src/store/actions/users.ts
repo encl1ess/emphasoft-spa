@@ -8,7 +8,7 @@ export const getUsers = () => {
     return async (dispatch: Dispatch<UserAction>) => {
         try {
             dispatch({type: UserActionTypes.GET_USERS})   
-            const response = await api.get('/users/')
+            const response = await api.get('/users/');
             dispatch({type: UserActionTypes.GET_USERS_SUCCESS, payload: response.data})   
         }  catch (e) {
             if (axios.isAxiosError(e) && e.response) {

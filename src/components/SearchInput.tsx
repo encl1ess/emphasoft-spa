@@ -7,10 +7,10 @@ import { BLUE } from '../styles/utils/colors';
 
 const Input = styled.input`
 margin: 1em;
-
   border: 0;
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  max-width: 700px;
+  height: 3em;
   padding: 10px 20px;
   background: white;
   border-radius: 3px;
@@ -19,12 +19,12 @@ margin: 1em;
 `;
 
 
-const InputContainer = styled.fieldset`
-     position: relative;
+const InputContainer = styled(Container)`
   padding: 0;
   margin: 0;
   border: 0;
-  width: 50vh;
+  width: 100%;
+
 `
 
 const SearchInput = () => {

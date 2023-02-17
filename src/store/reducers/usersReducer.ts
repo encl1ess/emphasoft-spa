@@ -14,13 +14,9 @@ export const usersReducer = (state = initialState, action: UserAction): UsersSta
 
     switch (action.type) {
         case UserActionTypes.GET_USERS:
-            return {
-                ...state, loading: true
-            }
+            return {...state, loading: true}
         case UserActionTypes.GET_USERS_SUCCESS:
-            return {
-                ...state, loading: false, users: [...action.payload], sortedOrFilteredUsers: [...action.payload]
-            }
+            return {...state, loading: false, users: [...action.payload], sortedOrFilteredUsers: [...action.payload]}
         case UserActionTypes.GET_USERS_FAILURE:
             return {...state, loading: false, error: action.payload}
         case UserActionTypes.SORT_BY_ID:

@@ -11,10 +11,12 @@ const Form = styled.form`
   color: white;
   box-sizing: border-box;
   padding: 3rem;
+  min-width: max-content;
   background-image: linear-gradient( 109.6deg, rgba(110,123,251,1) 11.2%, rgba(156,252,248,1) 91.1%);
   input {
     background: white;
     width: 100%;
+
     height: 2rem;
     margin: 1em 0;
     padding: 0 1.1em;

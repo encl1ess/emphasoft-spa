@@ -7,7 +7,12 @@ import UserList from './components/UserList';
 import { useActions } from './hooks/useActions';
 import { Container } from './styles/Container';
 import GlobalStyle from './styles/global';
-
+import styled from 'styled-components';
+const AppWrapper = styled(Container)`
+    height: 100vh;
+    overflow: hidden;
+    
+`
 
 const App = () => {
   const { checkAuth } = useActions();
@@ -19,10 +24,10 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      <Container direction='column'>
+      <AppWrapper direction='column' justify="start">
           <Navbar />
           <AppRouter />
-      </Container>
+      </AppWrapper>
     </>
   );
 };

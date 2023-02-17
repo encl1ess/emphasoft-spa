@@ -24,6 +24,7 @@ const StyledButton = styled.button<IButtonProps>`
     border: 0.1em solid ${props => props.border || 'transparent'};
     background-color: ${props => props.bg || BLUE};
     color: ${props => props.color || 'white'};
+    white-space: normal;
     text-transform: uppercase;
     &:hover:enabled {
         background: white;
