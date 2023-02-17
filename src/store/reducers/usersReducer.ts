@@ -14,7 +14,11 @@ export const usersReducer = (state = initialState, action: UserAction): UsersSta
     switch(action.type) {
         case UserActionTypes.GET_USERS: 
             return {
-                ...state, users: [...state.users, ...action.payload]
+                ...state, users: [...action.payload]
+            }
+        case UserActionTypes.SORT_BY_ID: 
+            return {
+                ...state, users: [...action.payload]
             }
         default:
             return state

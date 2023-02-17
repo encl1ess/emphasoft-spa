@@ -15,12 +15,18 @@ export interface UsersState {
 }
 
 export enum UserActionTypes {
-    GET_USERS = 'GET_USERS'
+    GET_USERS = 'GET_USERS',
+    SORT_BY_ID = 'SORT_BY_ID'
 }
 interface GetUsersAction {
     type: UserActionTypes.GET_USERS;
     payload: IUser[];
 }
 
+interface SortByIdAction {
+    type: UserActionTypes.SORT_BY_ID;
+    payload: IUser[];
+}
 
-export type UserAction = GetUsersAction;
+
+export type UserAction = GetUsersAction |SortByIdAction;
